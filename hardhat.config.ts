@@ -17,11 +17,17 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-const { ETHERSCAN_API_KEY, PRIVATE_KEY, NODE_URL } = process.env;
+const { ETHERSCAN_API_KEY, PRIVATE_KEY, RINKEBY_URL, MUMBAI_URL } = process.env;
 
 const rinkeby: NetworkUserConfig = {
-  url: NODE_URL!,
+  url: RINKEBY_URL!,
   chainId: 4,
+  accounts: [PRIVATE_KEY!],
+};
+
+const mumbai: NetworkUserConfig = {
+  url: MUMBAI_URL!,
+  chainId: 80001,
   accounts: [PRIVATE_KEY!],
 };
 
@@ -31,6 +37,7 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {},
     rinkeby: rinkeby,
+    mumbai: mumbai,
   },
   gasReporter: {
     enabled: true,

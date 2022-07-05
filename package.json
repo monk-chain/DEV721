@@ -4,7 +4,8 @@
     "node": "npx hardhat node",
     "compile": "npx hardhat compile",
     "deploy:localhost": "npx hardhat run --network localhost scripts/deploy.ts",
-    "deploy:testnet": "npx hardhat run --network rinkeby scripts/deploy.ts",
+    "deploy:rinkeby": "npx hardhat run --network rinkeby scripts/deploy.ts",
+    "deploy:mumbai": "npx hardhat run --network mumbai scripts/deploy.ts",
     "test": "npx hardhat test",
     "test:coverage": "npx hardhat coverage",
     "test:size-contracts": "npx hardhat size-contracts"
