@@ -17,7 +17,13 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-const { ETHERSCAN_API_KEY, PRIVATE_KEY, RINKEBY_URL, MUMBAI_URL } = process.env;
+const {
+  POLYGONSCAN_API_KEY,
+  ETHERSCAN_API_KEY,
+  PRIVATE_KEY,
+  RINKEBY_URL,
+  MUMBAI_URL,
+} = process.env;
 
 const rinkeby: NetworkUserConfig = {
   url: RINKEBY_URL!,
@@ -44,7 +50,10 @@ const config: HardhatUserConfig = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: ETHERSCAN_API_KEY!,
+    apiKey: {
+      rinkeby: ETHERSCAN_API_KEY!,
+      polygonMumbai: POLYGONSCAN_API_KEY!,
+    },
   },
   paths: {
     sources: "./contracts",
